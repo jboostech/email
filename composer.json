@@ -1,0 +1,26 @@
+{
+    "name": "boostech/email",
+    "description": "Pacote responsável por gerenciar métodos relacionados a e-mail",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Boostech\\Email\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joao Romeiro",
+            "email": "j.romeiro@live.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "repositories": {
+        "packagist.org": false,
+        "private-packagist": {
+            "type": "composer",
+            "url": "https://repo.packagist.com/boostechtecnologica/"
+        }
+    }
+}
