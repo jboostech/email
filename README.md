@@ -1,12 +1,10 @@
-# Boostech NFe
+# Boostech Email
 
-Este pacote tem o objetivo de abstrair métodos que permitam ao desenvolvedor manipular arquivos XML provenientes da NF-e
+Este pacote tem o objetivo de abstrair métodos que permitam ao desenvolvedor manipular a leitura de e-mails
 
 ## 🚀 Começando
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-Consulte **Implantação** para saber como implantar o projeto.
+Este documento descreve os passos necessários para utilização do pacote
 
 ### 📋 Pré-requisitos
 
@@ -19,53 +17,47 @@ Este pacote foi desenvolvido com as seguintes tecnologias:
 ### 🔧 Instalação
 
 1) Acesse a pasta do projeto na qual você deseja instalar o pacote (lembre-se dos pré-requisitos)
-2) Execute o comando: composer require boostech/nfe
-3) Será criada a pasta vendor/boostech/nfe
-4) Edite o arquivo /<nome_projeto>/config/app.php e adicione a linha Boostech\Nfe\Providers\NfeServiceProvider::class dentro da tag providers
+2) Execute o comando: composer require boostech/email
+3) Será criada a pasta vendor/boostech/email
+4) Edite o arquivo /<nome_projeto>/config/app.php e adicione a linha Boostech\Email\Providers\EmailServiceProvider::class dentro da tag providers
     'providers' => [
         ...
         ...
         ...
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Boostech\Nfe\Providers\NfeServiceProvider::class,
+        Boostech\Email\Providers\EmailServiceProvider::class,
 
     ],
-5) Dentro da raiz do diretório do seu projeto, execute o comando php artisan migrate
-6) Serão criadas duas tabelas no seu banco de dados:
-    - boostech_nfe_hnfex: Tabela responsável por gerenciar o cabeçalho das NF-e's
-    - boostech_nfe_hnfei: Tabela responsável por gerenciar os itens das NF-e's
 
 ## 📦 Desenvolvimento
 
 Para utilizar o pacote, siga o seguinte exemplo:
 
-1) Salve alguns XML's de NF-e's autorizadas em um determinado diretório
-2) Crie no seu projeto um Controller chamado TesteController
+1) Crie no seu projeto um Controller chamado TesteController
 3) Adicione um método a este controller
     public function teste()
     {
-        $diretorio = "<diretorio_dos_xmls>";
+        $hmail = new HmailClass('<endereço_imap>', '<porta_imap>', 'SSL', '<endereco_email_a_ser_lido>', '<senha_do_email>', true, '<diretorio_para_salvar_anexos>');
+        $retorno = $hmail->ler("INBOX", "", "");
+        
+        echo $retorno["mensagem"] . "<br>";
 
-        foreach (array_diff(scandir($diretorio), array('..', '.')) as $item) {
-            $retorno = Hnfex::importarXML(1, 2, sprintf("%s/%s", $diretorio, $item));
-
-            if (!$retorno['status']) {
-                dd($retorno['excessao']);
+        if ($retorno["emails"] == true) {
+            foreach ($retorno["emails"] as $email) {
+                foreach ($email->attachments as $attachments) {
+                    print_r($attachments);
+                }
             }
         }
-
-        echo "XML's importados!";
     }
-4) Crie uma rota para este método
-    Route::get('/teste', [App\Http\Controllers\TesteController::class, 'teste'])->name('teste.teste');
-5) Acesse a rota http://localhost:8000/teste através do seu browser
-6) O sistema realizará a importação dos XML's e caso dê tudo certo, a seguinte mensagem será apresentada: XML's importados!
-7) Acesse as tabelas boostech_nfe_hnfex e boostech_nfe_hnfei e confira se estão preenchidas
+    
+IMPORTANTE:
+- Não se esqueça de ler a documentação da classe e do método, quais os parâmetros, o que ele retorna e etc.
 
 ## 📌 Versão
 
-Versão 1.0.1
+Versão 1.0.0
 
 ## ✒️ Autores
 
