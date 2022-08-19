@@ -4,7 +4,7 @@ Este pacote tem o objetivo de abstrair métodos que permitam ao desenvolvedor ma
 
 ## 🚀 Começando
 
-Este documento descreve os passos necessários para utilização do pacote
+Os passos a seguir descreverão a instalação do pacote e a sua utilização
 
 ### 📋 Pré-requisitos
 
