@@ -36,7 +36,7 @@ Para utilizar o pacote, siga o seguinte exemplo:
 
 1) Crie no seu projeto um Controller chamado TesteController
 3) Adicione um método a este controller
-    public function teste()
+    `public function teste()
     {
         $hmail = new HmailClass('<endereço_imap>', '<porta_imap>', 'SSL', '<endereco_email_a_ser_lido>', '<senha_do_email>', true, '<diretorio_para_salvar_anexos>');
         $retorno = $hmail->ler("INBOX", "", "");
@@ -50,7 +50,7 @@ Para utilizar o pacote, siga o seguinte exemplo:
                 }
             }
         }
-    }
+    }`
     
 IMPORTANTE:
 - Não se esqueça de ler a documentação da classe e do método, quais os parâmetros, o que ele retorna e etc.
