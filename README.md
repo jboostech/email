@@ -20,15 +20,15 @@ Este pacote foi desenvolvido com as seguintes tecnologias:
 2) Execute o comando: composer require boostech/email
 3) Será criada a pasta vendor/boostech/email
 4) Edite o arquivo /<nome_projeto>/config/app.php e adicione a linha Boostech\Email\Providers\EmailServiceProvider::class dentro da tag providers
-    ```'providers' => [
-        ...
-        ...
-        ...
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        Boostech\Email\Providers\EmailServiceProvider::class,
-
-    ],```
+```'providers' => [
+    ...
+    ...
+    ...
+    App\Providers\EventServiceProvider::class,
+    App\Providers\RouteServiceProvider::class,
+    Boostech\Email\Providers\EmailServiceProvider::class,
+    ],
+```
 
 ## 📦 Desenvolvimento
 
@@ -50,7 +50,8 @@ Para utilizar o pacote, siga o seguinte exemplo:
             }
         }
     }
-}```
+}
+```
     
 IMPORTANTE:
 - Não se esqueça de ler a documentação da classe e do método, quais os parâmetros, o que ele retorna e etc.
