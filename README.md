@@ -19,8 +19,9 @@ Este pacote foi desenvolvido com as seguintes tecnologias:
 1) Acesse a pasta do projeto na qual você deseja instalar o pacote (lembre-se dos pré-requisitos)
 2) Execute o comando: ```composer require boostech/email```
 3) Execute o comando: ```sudo apt install php7.4-imap```
-4) Será criada a pasta vendor/boostech/email
-5) Edite o arquivo /<nome_projeto>/config/app.php e adicione a linha Boostech\Email\Providers\EmailServiceProvider::class dentro da tag providers
+4) Execute o comando: ```sudo service apache2 restart```
+5) Será criada a pasta vendor/boostech/email
+6) Edite o arquivo /<nome_projeto>/config/app.php e adicione a linha Boostech\Email\Providers\EmailServiceProvider::class dentro da tag providers
 ```
 'providers' => [
     ...
