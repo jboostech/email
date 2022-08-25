@@ -32,6 +32,7 @@ Este pacote foi desenvolvido com as seguintes tecnologias:
     Boostech\Email\Providers\EmailServiceProvider::class,
 ],
 ```
+7) Ao colocar em produção execute o comando: ```composer update``` no servidor
 
 ## 📦 Desenvolvimento
 
